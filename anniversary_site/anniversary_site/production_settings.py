@@ -17,11 +17,11 @@ ALLOWED_HOSTS = ['1yearanni-DrPayne.pythonanywhere.com']
 
 # Configure static files for production
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/yourusername/anniversary_site/staticfiles'
+STATIC_ROOT = '/home/drpayne/anniversary_site/staticfiles'
 
 # Configure media files for production
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/yourusername/anniversary_site/media'
+MEDIA_ROOT = '/home/drpayne/anniversary_site/media'
 
 # Security settings
 SECURE_CONTENT_TYPE_NOSNIFF = True
