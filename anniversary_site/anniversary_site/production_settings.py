@@ -9,24 +9,26 @@ DEBUG = False
 # Generate a new secret key for production
 # You should generate a new one using:
 # python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
-SECRET_KEY = 'your-new-secure-key-here'  # Replace with your generated key
+SECRET_KEY = 't6#@07#tj+nvmin!t7qj0h-3=-ayyge&1(0r%k*!7v#23^9wf('  
 
 # Configure allowed hosts
 # Add your domain name(s) here
-ALLOWED_HOSTS = ['yourdomain.com', 'www.yourdomain.com']
+ALLOWED_HOSTS = ['1yearanni-DrPayne.pythonanywhere.com']
 
 # Configure static files for production
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/yourusername/anniversary_site/staticfiles'
 
 # Configure media files for production
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home/yourusername/anniversary_site/media'
 
 # Security settings
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
+
+
 
 # If you're using HTTPS (recommended):
 # SECURE_SSL_REDIRECT = True
