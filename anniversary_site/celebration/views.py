@@ -3,11 +3,9 @@ from .models import Photo, MenuItem, AboutUs
 
 def home(request):
     photos = Photo.objects.all()
-    try:
-        about = AboutUs.objects.first()
-        anniversary_date = about.anniversary_date
-    except AboutUs.DoesNotExist:
-        anniversary_date = None
+    
+    about = AboutUs.objects.first()
+    anniversary_date = about.anniversary_date if about else None
     
     return render(request, 'celebration/home.html', {
         'photos': photos,
@@ -26,10 +24,7 @@ def menu(request):
     })
 
 def about(request):
-    try:
-        about_us = AboutUs.objects.first()
-    except AboutUs.DoesNotExist:
-        about_us = None
+    about_us = AboutUs.objects.first()
     
     return render(request, 'celebration/about.html', {
         'about_us': about_us
