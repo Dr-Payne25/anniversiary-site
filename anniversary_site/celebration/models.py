@@ -46,3 +46,7 @@ class AboutUs(models.Model):
     
     def __str__(self):
         return f"About {self.your_name} & {self.partner_name}"
+    
+    class Meta:
+        verbose_name = "About Us"
+        verbose_name_plural = "About Us"  # This prevents Django from making it "About Uss"

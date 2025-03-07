@@ -205,7 +205,8 @@ main {
 .menu-item img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain; /* Changed from cover to contain */
+    background-color: #f8f9fa; /* Optional: adds a light background */
 }
 
 .menu-item h3 {
@@ -260,7 +261,8 @@ main {
 .about-person img {
     width: 100%;
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #f8f9fa; /* Optional: adds a light background */
 }
 
 .about-person h2 {
@@ -311,6 +313,9 @@ footer {
     }
     
     .carousel-slide img {
-        height: 40vh;
+        width: 100%;
+        height: 60vh;
+        object-fit: contain; /* Changed from cover to contain */
+        background-color: #f8f9fa; /* Optional: adds a light background */
     }
 }
