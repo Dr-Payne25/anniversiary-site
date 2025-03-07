@@ -15,9 +15,6 @@ SECRET_KEY = 't6#@07#tj+nvmin!t7qj0h-3=-ayyge&1(0r%k*!7v#23^9wf('
 # Add your domain name(s) here
 ALLOWED_HOSTS = ['1yearanni-DrPayne.pythonanywhere.com']
 
-# Configure static files for production
-STATIC_URL = '/static/'
-STATIC_ROOT = '/home/drpayne/anniversary_site/staticfiles'
 
 # Configure media files for production
 MEDIA_URL = '/media/'
@@ -28,13 +25,9 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
 
-# Security Settings
-DEBUG = False  # Critical for production
-ALLOWED_HOSTS = ['1yearanni-drpayne.pythonanywhere.com']
-
 # Static Files Configuration
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/home/drpayne/anniversary_site/staticfiles'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'celebration', 'static'),
 ]
