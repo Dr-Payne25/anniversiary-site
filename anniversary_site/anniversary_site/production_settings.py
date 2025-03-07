@@ -28,6 +28,22 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
 
+# Security Settings
+DEBUG = False  # Critical for production
+ALLOWED_HOSTS = ['1yearanni-drpayne.pythonanywhere.com']
+
+# Static Files Configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Optional: Additional Production-Specific Security
+SECURE_SSL_REDIRECT = True  # Force HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 
 
 # If you're using HTTPS (recommended):
