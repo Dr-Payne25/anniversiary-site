@@ -1,0 +1,33 @@
+{% extends 'celebration/base.html' %}
+
+{% block content %}
+<div class="about-header">
+    <h1>About Us</h1>
+    {% if about_us %}
+    <p class="anniversary-date">Celebrating {{ about_us.anniversary_date|date:"F j, Y" }}</p>
+    {% endif %}
+</div>
+
+{% if about_us %}
+<div class="about-section">
+    <div class="about-person">
+        <img src="{{ about_us.your_image.url }}" alt="{{ about_us.your_name }}">
+        <h2>{{ about_us.your_name }}</h2>
+        <p>{{ about_us.your_bio|linebreaks }}</p>
+    </div>
+    
+    <div class="about-person">
+        <img src="{{ about_us.partner_image.url }}" alt="{{ about_us.partner_name }}">
+        <h2>{{ about_us.partner_name }}</h2>
+        <p>{{ about_us.partner_bio|linebreaks }}</p>
+    </div>
+</div>
+
+<div class="our-story">
+    <h2>Our Story</h2>
+    <p>{{ about_us.relationship_story|linebreaks }}</p>
+</div>
+{% else %}
+<p>Information about us coming soon!</p>
+{% endif %}
+{% endblock %}

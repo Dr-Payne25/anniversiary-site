@@ -1,0 +1,71 @@
+{% extends 'celebration/base.html' %}
+
+{% block content %}
+<div class="menu-header">
+    <h1>Our Special Anniversary Menu</h1>
+    <p>A culinary journey to celebrate our first year together</p>
+</div>
+
+<div class="menu-section">
+    <h2>Appetizers</h2>
+    <div class="menu-items">
+        {% for item in appetizers %}
+        <div class="menu-item">
+            <img src="{{ item.image.url }}" alt="{{ item.name }}">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            {% if item.background_story %}
+            <div class="story">
+                <h4>Story Behind This Dish</h4>
+                <p>{{ item.background_story }}</p>
+            </div>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>No appetizers added yet!</p>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="menu-section">
+    <h2>Main Course</h2>
+    <div class="menu-items">
+        {% for item in mains %}
+        <div class="menu-item">
+            <img src="{{ item.image.url }}" alt="{{ item.name }}">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            {% if item.background_story %}
+            <div class="story">
+                <h4>Story Behind This Dish</h4>
+                <p>{{ item.background_story }}</p>
+            </div>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>No main courses added yet!</p>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="menu-section">
+    <h2>Desserts</h2>
+    <div class="menu-items">
+        {% for item in desserts %}
+        <div class="menu-item">
+            <img src="{{ item.image.url }}" alt="{{ item.name }}">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            {% if item.background_story %}
+            <div class="story">
+                <h4>Story Behind This Dish</h4>
+                <p>{{ item.background_story }}</p>
+            </div>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>No desserts added yet!</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

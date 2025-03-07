@@ -1,0 +1,37 @@
+{% extends 'celebration/base.html' %}
+
+{% block content %}
+<div class="hero">
+    <h1>Happy 1 Year Anniversary!</h1>
+    {% if anniversary_date %}
+        <p class="anniversary-date">{{ anniversary_date|date:"F j, Y" }}</p>
+    {% endif %}
+</div>
+
+<div class="photo-gallery">
+    <h2>Our Memories</h2>
+    
+    {% if photos %}
+    <div class="carousel">
+        <div class="carousel-container">
+            {% for photo in photos %}
+            <div class="carousel-slide">
+                <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                <div class="caption">
+                    <h3>{{ photo.title }}</h3>
+                    <p>{{ photo.caption }}</p>
+                    {% if photo.date_taken %}
+                    <p class="date">{{ photo.date_taken|date:"F j, Y" }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    {% else %}
+    <p>No photos uploaded yet!</p>
+    {% endif %}
+</div>
+{% endblock %}

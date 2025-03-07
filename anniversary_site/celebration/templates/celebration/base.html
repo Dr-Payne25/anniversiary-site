@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Anniversary</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'celebration/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'celebration:home' %}">Home</a></li>
+                <li><a href="{% url 'celebration:menu' %}">Our Special Menu</a></li>
+                <li><a href="{% url 'celebration:about' %}">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <p>Created with love for our 1 Year Anniversary</p>
+    </footer>
+
+    <script src="{% static 'celebration/js/script.js' %}"></script>
+</body>
+</html>
