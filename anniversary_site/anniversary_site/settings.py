@@ -119,3 +119,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Configure media files for photo uploads
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+# In settings.py
+LOGIN_REDIRECT_URL = '/welcome/'  # This might help force a redirect
