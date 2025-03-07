@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['1yearanni-drpayne.pythonanywhere.com']
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'celebration', 'static'),
 ]
 
 # Optional: Additional Production-Specific Security
