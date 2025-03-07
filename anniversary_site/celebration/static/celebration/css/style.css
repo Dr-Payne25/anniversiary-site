@@ -1,28 +1,62 @@
 /* celebration/static/celebration/css/style.css */
+:root {
+    /* Theme colors */
+    --dark-blue: #0d2241;           /* Primary dark blue */
+    --blue: #1e3a8a;                /* Secondary blue */
+    --blue-light: #3b60c9;          /* Lighter blue for hover */
+    --light-pink: #f8b4d9;          /* Light pink accent */
+    --pink: #ed64a6;                /* Medium pink */
+    --gold: #fbbf24;                /* Gold accent */
+    --gold-dark: #d97706;           /* Darker gold */
+    --text-dark: #111827;           /* Very dark text */
+    --text-color: #e2e8f0;          /* Light text for dark backgrounds */
+    --text-muted: #94a3b8;          /* Muted text */
+    --bg-dark: #111827;             /* Dark background */
+    --bg-medium: #1e293b;           /* Medium dark background */
+    --bg-light: #334155;            /* Lighter background for cards */
+    --white: #ffffff;               /* White */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.4);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    height: 100%;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #FBEAEB; /* Soft pink/cream text */
-    background-color: #2F3C7E; /* Rich navy blue background */
-    min-height: 100%;
+    color: var(--text-color);
+    background-color: var(--bg-dark);
     display: flex;
     flex-direction: column;
-    margin: 0;
+    min-height: 100vh; /* Ensure footer sticks to bottom */
 }
 
+main {
+    flex: 1; /* Take up available space to push footer down */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Typography improvements */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Header & Navigation */
 header {
-    background-color: #1a2456; /* Darker shade of the navy blue */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    background-color: var(--dark-blue);
+    box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -41,94 +75,116 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #f0f0f0; /* Light text for dark background */
-    font-weight: 500;
+    color: var(--white);
+    font-weight: 600;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Add bottom border animation on hover */
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover:after {
+    width: 100%;
 }
 
 nav ul li a:hover {
-    background-color: #d4af37; /* Keeping gold hover effect */
-    color: #2F3C7E; /* Navy blue text on gold background */
+    color: var(--light-pink);
 }
 
-main {
-    flex: 1 0 auto; /* This is crucial - it allows main to grow but not shrink */
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    color: #ffffff; /* Added white text color */
-}
-
+/* Hero Section */
 .hero {
     text-align: center;
-    padding: 3rem 0;
+    padding: 4rem 0;
+    background: linear-gradient(to right, rgba(13, 34, 65, 0.9), rgba(13, 34, 65, 0.9)), 
+                url('/media/photos/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-md);
+    color: var(--white);
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #ffffff; /* Changed to white */
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-pink);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .anniversary-date {
-    font-size: 1.5rem;
-    color: #d4af37; /* Keeping gold for accent */
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Photo Gallery / Carousel */
+/* Photo Gallery / Carousel Enhancements */
 .photo-gallery {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Allow it to grow to fill space */
-    margin-bottom: 2rem;
+    margin: 3rem 0;
 }
 
 .photo-gallery h2 {
     text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+    position: relative;
+    color: var(--gold);
+}
+
+.photo-gallery h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--pink);
 }
 
 .carousel {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    max-width: 800px;
-    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
     margin: 0 auto;
-    flex-grow: 1; /* Allow it to grow */
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #d4af37; /* Keeping gold border */
+    max-width: 1000px;
+    border: 1px solid var(--blue-light);
 }
 
 .carousel-container {
     display: flex;
-    transition: transform 0.5s ease;
-    flex: 1;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide {
     min-width: 100%;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1a2456; /* Darker shade of navy blue */
 }
 
 .carousel-slide img {
-    max-width: 100%;
-    max-height: 600px; /* Set a reasonable max height */
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 60vh;
     object-fit: contain;
+    background-color: var(--bg-light);
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide:hover img {
+    transform: scale(1.02);
 }
 
 .caption {
@@ -136,30 +192,37 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(26,36,86,0.8)); /* Gradient using darker navy */
-    color: #FBEAEB;
-    padding: 1.5rem;
-    text-align: left;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide:hover .caption {
+    transform: translateY(-5px);
 }
 
 .caption h3 {
     margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .caption .date {
     font-style: italic;
     margin-top: 0.5rem;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .carousel-prev, .carousel-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(26,36,86,0.7); /* Using darker navy */
-    border: 1px solid #d4af37; /* Keeping gold border */
-    width: 40px;
-    height: 40px;
+    background: rgba(255,255,255,0.7);
+    border: none;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.2rem;
@@ -167,12 +230,17 @@ main {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    color: #d4af37; /* Keeping gold text */
-    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .carousel-prev:hover, .carousel-next:hover {
-    background: rgba(26,36,86,0.9); /* Darker navy on hover */
+    background: var(--white);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.carousel-prev:focus, .carousel-next:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.3);
 }
 
 .carousel-prev {
@@ -183,27 +251,33 @@ main {
     right: 20px;
 }
 
-/* Menu Page */
+/* Menu Page Enhancements */
 .menu-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    padding: 3rem 2rem;
+    background-color: var(--bg-medium);
+    color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--blue);
 }
 
 .menu-header h1 {
-    font-size: 2.5rem;
-    color: #ffffff; /* Changed to white */
-    margin-bottom: 0.5rem;
+    font-size: 2.8rem;
+    color: var(--light-pink);
+    margin-bottom: 1rem;
 }
 
 .menu-section {
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 .menu-section h2 {
     text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #ffffff; /* Changed to white */
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: var(--gold);
     position: relative;
 }
 
@@ -213,133 +287,195 @@ main {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
+    width: 60px;
     height: 3px;
-    background-color: #d4af37; /* Keeping gold underline */
+    background-color: var(--gold);
 }
 
 .menu-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
 }
 
 .menu-item {
-    background-color: #1a2456; /* Darker shade of navy blue */
-    border-radius: 8px;
+    background-color: var(--bg-medium);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    border: 1px solid #d4af37; /* Keeping gold border */
-    color: #FBEAEB; /* Soft pink/cream text */
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--blue-light);
 }
 
 .menu-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
 }
 
 .menu-item img {
     width: 100%;
     height: 250px;
-    object-fit: contain; /* Changed from cover to contain */
-    background-color: #f8f9fa; /* Optional: adds a light background */
+    object-fit: contain;
+    background-color: var(--bg-light);
+    transition: transform 0.5s ease;
+    padding: 1rem;
+}
+
+.menu-item:hover img {
+    transform: scale(1.03);
 }
 
 .menu-item h3 {
-    padding: 1rem 1rem 0.5rem;
-    color: #ffffff; /* Changed to white */
+    padding: 1.2rem 1.2rem 0.5rem;
+    color: var(--pink);
+    font-size: 1.4rem;
 }
 
 .menu-item p {
-    padding: 0 1rem 1rem;
+    padding: 0 1.2rem 1.2rem;
+    color: var(--text-color);
 }
 
 .menu-item .story {
-    padding: 1rem;
-    background-color: #232d5f; /* Even darker navy for contrast */
-    border-top: 1px solid #d4af37; /* Keeping gold border */
+    padding: 1.2rem;
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--blue);
 }
 
 .menu-item .story h4 {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    color: #ffffff; /* Changed to white */
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: var(--gold);
 }
 
-/* About Page */
+/* About Page Enhancements */
 .about-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    padding: 3rem 2rem;
+    background-color: var(--bg-medium);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--blue);
 }
 
 .about-header h1 {
-    font-size: 2.5rem;
-    color: #ffffff; /* Changed to white */
-    margin-bottom: 0.5rem;
+    font-size: 2.8rem;
+    color: var(--light-pink);
+    margin-bottom: 1rem;
 }
 
 .about-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
 }
 
 .about-person {
     text-align: center;
-    background-color: #1a2456; /* Darker shade of navy blue */
-    border-radius: 8px;
+    background-color: var(--bg-medium);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    padding-bottom: 1.5rem;
-    border: 1px solid #d4af37; /* Keeping gold border */
-    color: #FBEAEB; /* Soft pink/cream text */
+    box-shadow: var(--shadow-md);
+    padding-bottom: 2rem;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--blue-light);
+}
+
+.about-person:hover {
+    transform: translateY(-10px);
 }
 
 .about-person img {
     width: 100%;
-    height: 300px;
+    height: 350px;
     object-fit: contain;
-    background-color: #f8f9fa; /* Optional: adds a light background */
+    background-color: var(--bg-light);
+    transition: transform 0.5s ease;
+    padding: 1rem;
+}
+
+.about-person:hover img {
+    transform: scale(1.03);
 }
 
 .about-person h2 {
-    margin: 1.5rem 0 1rem;
-    color: #ffffff; /* Changed to white */
+    margin: 1.8rem 0 1.2rem;
+    color: var(--pink);
+    font-size: 1.8rem;
 }
 
 .about-person p {
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     text-align: left;
+    color: var(--text-color);
 }
 
 .our-story {
-    background-color: #1a2456; /* Darker shade of navy blue */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    padding: 2rem;
-    border: 1px solid #d4af37; /* Keeping gold border */
-    color: #FBEAEB; /* Soft pink/cream text */
+    background-color: var(--bg-medium);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    padding: 3rem;
+    margin-top: 2rem;
+    border: 1px solid var(--blue-light);
 }
 
 .our-story h2 {
     text-align: center;
-    margin-bottom: 1.5rem;
-    color: #ffffff; /* Changed to white */
+    margin-bottom: 2rem;
+    color: var(--gold);
+    font-size: 2rem;
+    position: relative;
 }
 
+.our-story h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--pink);
+}
+
+/* Footer Enhancements */
 footer {
-    flex-shrink: 0; /* Prevents the footer from shrinking */
     text-align: center;
-    padding: 2rem 0;
-    background-color: #1a2456; /* Darker shade of navy blue */
-    color: #FBEAEB; /* Soft pink/cream text */
-    width: 100%;
-    margin-top: auto; /* Pushes the footer to the bottom */
-    border-top: 3px solid #d4af37; /* Keeping gold border top */
+    padding: 2.5rem 0;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    margin-top: auto; /* Push to bottom */
+}
+
+footer p {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+/* Add a gold heart icon to footer */
+footer p:before {
+    content: '💛 ';
+    font-size: 1.2rem;
 }
 
 /* Responsive adjustments */
+@media (max-width: 992px) {
+    .carousel-slide img {
+        height: 50vh;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .menu-items {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -351,14 +487,56 @@ footer {
         margin: 0.5rem 0;
     }
     
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
     .hero h1 {
         font-size: 2.5rem;
     }
     
     .carousel-slide img {
-        width: 100%;
-        height: 60vh;
-        object-fit: contain; /* Changed from cover to contain */
-        background-color: #f8f9fa; /* Optional: adds a light background */
+        height: 40vh;
+    }
+    
+    .about-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .menu-items {
+        grid-template-columns: 1fr;
+    }
+    
+    main {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .anniversary-date {
+        font-size: 1.2rem;
+    }
+    
+    .carousel-slide img {
+        height: 30vh;
+    }
+    
+    .carousel-prev, .carousel-next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .menu-header h1, .about-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .our-story {
+        padding: 1.5rem;
     }
 }
