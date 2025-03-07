@@ -1,5 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Photo, MenuItem, AboutUs
+from django.shortcuts import redirect
+
+def index_redirect(request):
+    """Redirect from root to welcome page"""
+    return redirect('celebration:welcome')
 
 def site_entry(request):
     """Force redirect to welcome page on first visit"""

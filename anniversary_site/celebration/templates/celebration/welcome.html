@@ -10,23 +10,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body class="envelope-body">
-    <div class="envelope-container">
-        <!-- Simple envelope structure -->
+    <div class="envelope-wrapper">
         <div class="envelope">
-            <!-- Envelope parts -->
-            <div class="envelope-flap"></div>
-            <div class="envelope-content">
-                <div class="card">
+            <!-- The envelope container -->
+            <div class="envelope-back"></div>
+            
+            <!-- The envelope flaps -->
+            <div class="envelope-flap envelope-top-flap"></div>
+            <div class="envelope-flap envelope-left-flap"></div>
+            <div class="envelope-flap envelope-right-flap"></div>
+            <div class="envelope-flap envelope-bottom-flap"></div>
+            
+            <!-- The seal -->
+            <div class="seal">
+                <i class="fas fa-heart"></i>
+            </div>
+            
+            <!-- The actual letter/card inside -->
+            <div class="letter">
+                <div class="letter-content">
                     <h1>Our Anniversary Celebration</h1>
-                    <p class="invitation-text">Join us in celebrating our special day</p>
-                    <a href="/" class="envelope-button">
+                    <p>Join us in celebrating our special day</p>
+                    <a href="{% url 'celebration:home' %}" class="envelope-button">
                         Open Invitation <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-            </div>
-            <!-- Seal -->
-            <div class="seal">
-                <i class="fas fa-heart"></i>
             </div>
         </div>
     </div>

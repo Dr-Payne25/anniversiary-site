@@ -107,8 +107,7 @@ nav ul li a:hover {
 .hero {
     text-align: center;
     padding: 4rem 0;
-    background: linear-gradient(to right, rgba(13, 34, 65, 0.9), rgba(13, 34, 65, 0.9)), 
-                url('/media/photos/hero-background.jpg');
+    background: linear-gradient(to right, #0d2241, #1e3a8a);
     background-size: cover;
     background-position: center;
     border-radius: 10px;

@@ -12,9 +12,9 @@
 
 .envelope-wrapper {
     position: relative;
-    width: 300px;
-    height: 200px;
-    perspective: 1000px;
+    width: 330px;
+    height: 220px;
+    perspective: 1200px;
 }
 
 /* Main envelope */
@@ -34,6 +34,7 @@
     background-color: #3b60c9;
     border-radius: 5px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
 /* The flaps of the envelope */
@@ -49,7 +50,7 @@
     height: 100%;
     transform-origin: top;
     clip-path: polygon(0 0, 50% 50%, 100% 0);
-    z-index: 10;
+    z-index: 4;
 }
 
 /* Left flap */
@@ -59,7 +60,7 @@
     left: 0;
     transform-origin: left;
     clip-path: polygon(0 0, 100% 50%, 0 100%);
-    z-index: 5;
+    z-index: 3;
 }
 
 /* Right flap */
@@ -69,33 +70,34 @@
     right: 0;
     transform-origin: right;
     clip-path: polygon(100% 0, 0 50%, 100% 100%);
-    z-index: 5;
+    z-index: 3;
 }
 
 /* Bottom flap */
 .envelope-bottom-flap {
     width: 100%;
-    height: 100%;
+    height: 50%;
+    bottom: 0;
     transform-origin: bottom;
     clip-path: polygon(0 100%, 50% 50%, 100% 100%);
-    z-index: 5;
+    z-index: 2;
 }
 
 /* The seal on the envelope */
 .seal {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background-color: #fbbf24;
     border-radius: 50%;
-    top: 20px;
+    top: 25px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 15;
+    z-index: 5;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
@@ -106,25 +108,25 @@
 
 .seal i {
     color: #ed64a6;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 /* The letter/card inside the envelope */
 .letter {
     position: absolute;
     width: 90%;
-    height: 90%;
+    height: 85%;
     background-color: #1e293b;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) translateY(100px);
+    /* Position the letter INSIDE the envelope initially */
+    transform: translate(-50%, -50%) translateZ(-2px);
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     border: 2px solid #fbbf24;
     overflow: hidden;
-    z-index: 1;
-    transition: transform 0.8s ease;
-    transition-delay: 0.5s;
+    z-index: 0; /* Starts behind everything */
+    transition: transform 0.8s ease, z-index 0s 0.4s;
 }
 
 .letter-content {
@@ -177,21 +179,28 @@
     transform: translateX(5px);
 }
 
-/* Animation classes */
+/* Animation classes - specific timing here is crucial */
 .envelope.opened .envelope-top-flap {
     transform: rotateX(180deg);
+    z-index: 1;
+    transition-delay: 0.1s;
 }
 
 .envelope.opened .envelope-left-flap {
     transform: rotateY(-180deg);
+    transition-delay: 0.3s;
 }
 
 .envelope.opened .envelope-right-flap {
     transform: rotateY(180deg);
+    transition-delay: 0.3s;
 }
 
 .envelope.opened .letter {
-    transform: translate(-50%, -50%) translateY(-20px);
+    /* Move the letter up and out of the envelope */
+    transform: translate(-50%, -120%);
+    z-index: 10; /* Move to front after animation starts */
+    transition: transform 0.8s ease 0.6s, z-index 0s 0.6s;
 }
 
 /* Media query for responsiveness */
