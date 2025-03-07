@@ -42,3 +42,5 @@ ENV/
 Thumbs.db
 
 staticfiles/
+*.pyc
+__pycache__/
