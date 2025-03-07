@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Anniversary Invitation</title>
+    <link rel="stylesheet" href="{% static 'celebration/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'celebration/css/envelope.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="envelope-body">
+    <div class="envelope-container">
+        <div class="envelope">
+            <!-- Envelope parts -->
+            <div class="envelope-back"></div>
+            <div class="envelope-front"></div>
+            <div class="envelope-left-flap"></div>
+            <div class="envelope-right-flap"></div>
+            <div class="envelope-top-flap">
+                <div class="seal">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            
+            <!-- Card inside envelope -->
+            <div class="card">
+                <div class="card-content">
+                    <h1>Our Anniversary Celebration</h1>
+                    <p class="anniversary-date">Join us in celebrating our special day</p>
+                    <button id="open-invitation" class="envelope-button">
+                        Open Invitation
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'celebration/js/envelope.js' %}"></script>
+</body>
+</html>

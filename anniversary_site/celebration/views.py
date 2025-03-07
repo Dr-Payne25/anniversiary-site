@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .models import Photo, MenuItem, AboutUs
 
+def welcome(request):
+    """Render the welcome/envelope page"""
+    return render(request, 'celebration/welcome.html')
+
 def home(request):
     photos = Photo.objects.all()
     
