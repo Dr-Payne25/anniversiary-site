@@ -6,8 +6,7 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('celebration.urls')),
-    path('', RedirectView.as_view(url='/celebration/welcome/'), name='welcome'),
+    path('', include('celebration.urls')),  # Changed this line to include at root
 ]
 
 # Add this to serve media files during development
