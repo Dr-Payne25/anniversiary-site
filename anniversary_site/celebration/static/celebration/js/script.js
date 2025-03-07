@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Set up automatic sliding
-    let interval = setInterval(autoSlide, 5000); // Change slide every 5 seconds
+    let interval = setInterval(autoSlide, 10000); // Change slide every 10 seconds
     
     // Pause automatic sliding when mouse hovers over carousel
     carouselContainer.addEventListener('mouseenter', function() {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Resume automatic sliding when mouse leaves carousel
     carouselContainer.addEventListener('mouseleave', function() {
-        interval = setInterval(autoSlide, 5000);
+        interval = setInterval(autoSlide, 10000);
     });
     
     // Function to handle automatic sliding
